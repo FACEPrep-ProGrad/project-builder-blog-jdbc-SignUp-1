@@ -17,11 +17,13 @@ public class UserDAO implements UserDaoInterface {
 		try
 		{
 			Connection connection = ConnectionManager.getConnection();
+			
 			// Step 2:Create a statement using connection object
 			PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
 			preparedStatement.setString(1,user.getEmail());
 			preparedStatement.setString(2,user.getPassword());
 			System.out.println(preparedStatement);
+			
 			// Step 3: Execute the query or update query
 			result = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
